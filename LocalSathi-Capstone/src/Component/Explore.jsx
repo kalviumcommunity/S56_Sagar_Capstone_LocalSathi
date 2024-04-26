@@ -12,25 +12,25 @@ const Explore = () => {
     <div>
       <div className='exp-pg' >
      <div className='exp-pg-subdiv' >
-      <img id='exp' src={img1} alt="" />
+      <img className='exp' src={img1} alt="" />
       <h2>Foodie</h2>
       </div> 
 
       <div  className='exp-pg-subdiv'  >
 
-      <img id='exp' src={img2} alt="" />
+      <img className='exp' src={img2} alt="" />
       <h2>Historical</h2>
       </div>
 
       <div className='exp-pg-subdiv' >
 
-      <img id='exp' src={img3} alt="" />
+      <img className='exp' src={img3} alt="" />
       <h2>Adventure</h2>
       </div>
 
       <div className='exp-pg-subdiv' >
 
-      <img id='exp' src={img4} alt="" />
+      <img className='exp' src={img4} alt="" />
       <h2>Explorer</h2>
       </div>
       </div>

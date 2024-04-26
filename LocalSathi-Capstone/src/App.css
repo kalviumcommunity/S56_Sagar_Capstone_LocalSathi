@@ -21,7 +21,7 @@ padding: 6px 16px;
 background: red;
 height: 32px;
 color: white;
-font-weight: 500px;
+font-weight: 31.25rem;
 }
 
 a{
@@ -85,7 +85,7 @@ a{
   height: 40vh;
 }
 
-#exp{
+.exp{
   margin-top: 12vh;
   height:65vh;
   margin-left: 0vw;
@@ -130,7 +130,7 @@ input{
 }
 
 .img-cont-search-sec{
-  margin-left: -1vw;
+  margin-left: 1vw;
   margin-top: 3vw;
 }
 
@@ -143,4 +143,8 @@ input{
 }
 .exp-main{
   display: flex;
+}
+
+.hero-main-section{
+  width: 100%;
 }

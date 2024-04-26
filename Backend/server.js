@@ -1,5 +1,5 @@
 const express = require('express')
-const { connected, isConnected } = require('./DB');;
+const { connected, isConnected } = require('./DB'); 
 const cors = require("cors");
 
 const port = 3200
@@ -14,14 +14,21 @@ app.get('/', (req, res) => {
             database : isConnected() ? 'connected' : 'disconnected'}
         )
     }
-    catch(err){
-        console.log(err)
+    catch (err) {
+        console.error('Error in main server route:', err);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 })
 
 if (require.main === module) {
-    connected()
-    app.listen(port, async () => {
-      console.log(` server running on PORT: ${port}`);
-    });
+    try{
+
+        connected()
+        app.listen(port, async () => {
+          console.log(` server running on PORT: ${port}`);
+        });
+    }
+    catch (error) {
+        console.error('Failed to connect to the database:', error);
+    }
   }

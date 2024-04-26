@@ -26,7 +26,10 @@ const connection = async (retry) => {
 const connected = async () => {
   await connection(1);
 };
+const isConnected = () => {
+  return mongoose.connection.readyState === 1;
+};
 
 module.exports = {
-  connected
+  connected,isConnected
 };

@@ -2,7 +2,6 @@ const express = require('express')
 const { connected, isConnected } = require('./DB'); 
 const cors = require("cors");
 const {router} = require("./Routes.js")
-
 const port = 3200
 
 const app = express()
@@ -24,14 +23,14 @@ app.get('/', (req, res) => {
 app.use(router)
 
 if (require.main === module) {
-    try{
-
-        connected()
-        app.listen(port, async () => {
-          console.log(` server running on PORT: ${port}`);
+    connected()
+        .then(() => {
+            app.listen(port, async () => {
+                console.log(`Server running on PORT: ${port}`);
+            });
+        })
+        .catch(error => {
+            console.error('Failed to connect to the database:', error);
         });
-    }
-    catch (error) {
-        console.error('Failed to connect to the database:', error);
-    }
-  }
+}
+

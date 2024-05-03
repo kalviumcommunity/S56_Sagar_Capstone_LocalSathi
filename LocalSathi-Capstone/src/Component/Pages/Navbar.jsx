@@ -17,7 +17,7 @@ const Navbar = () => {
              <li><a href="#">explore</a></li>
          </ul>
 
-         <Link to={"/SignUpForm"} ><button>Login</button></Link>
+         <Link to={"/SignUpForm"} ><button>SignUp</button></Link>
      </nav>
    </div>
  </div>

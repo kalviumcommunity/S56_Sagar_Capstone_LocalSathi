@@ -16,7 +16,7 @@ let navigate = useNavigate()
  const   submitbtn = (e) => {
     e.preventDefault()
     console.log("login clicked")
-    axios.post("http://localhost:3200/Signup", { Name: name, Age: Age, Email: Email, Password: password })
+    axios.post("https://s56-sagar-capstone-localsathi.onrender.com/Signup", { Name: name, Age: Age, Email: Email, Password: password })
     .then((res) => {
      console.log(res.data)
      navigate("/")
@@ -84,9 +84,9 @@ return (
     </div>
 
 
-      <button className="button-submit" onClick={submitbtn} >Sign In</button> 
+      <button className="button-submit" onClick={submitbtn} >Sign up</button> 
 
-    <p className="p">Don't have an account? <span className="span">Sign Up</span></p>
+    <p className="p"> have an account? <span className="span">Sign In</span></p>
 
     <p className="p line">Or With</p>
 

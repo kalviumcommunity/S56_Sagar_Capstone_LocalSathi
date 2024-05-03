@@ -1,6 +1,7 @@
 const express = require('express')
 const { connected, isConnected } = require('./DB'); 
 const cors = require("cors");
+const {router} = require("./Routes.js")
 
 const port = 3200
 
@@ -19,6 +20,8 @@ app.get('/', (req, res) => {
         res.status(500).json({ error: 'Internal Server Error' });
     }
 })
+
+app.use(router)
 
 if (require.main === module) {
     try{

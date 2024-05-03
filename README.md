@@ -27,7 +27,9 @@ LocalSathi combines these two problems by creating a platform where local indivi
 3. **Day 3:** Establish repository.
 
 
+Backend server Deployed link  : https://s56-sagar-capstone-localsathi.onrender.com
 
+Frontend Deployed link : https://localsathi.netlify.app/
 
 
 

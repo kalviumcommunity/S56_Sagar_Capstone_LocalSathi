@@ -43,6 +43,7 @@ a{
 
 .right-Section{
   width: 40%;
+  text-align: center;
 }
 
 .Left-section div div{
@@ -148,3 +149,20 @@ input{
 .hero-main-section{
   width: 100%;
 }
+
+.line-1{
+  font-size: 70px;
+}
+
+.line-2{
+  font-size:40px ;
+}
+
+.line-3{
+  font-size: 70px;
+}
+
+.slogan-box{
+  margin-top: 10vw;
+}
+

@@ -14,10 +14,12 @@ const Navbar = () => {
              <li><a href="#">Location</a></li>
              <li><a href="#">About</a></li>
              <li><a href="#">Contact</a></li>
-             <li><a href="#">explore</a></li>
+        <Link to={"/Trial"} > <li><a href="#">explore</a></li>  </Link>  
          </ul>
-
-         <Link to={"/SignUpForm"} ><button>SignUp</button></Link>
+        <div>
+         <Link to={"/SignInForm"} style={{marginRight:"10px"}}><button>Login</button></Link>
+         <Link to={"/UserOrGuide"} ><button>SignUp</button></Link>
+        </div>
      </nav>
    </div>
  </div>

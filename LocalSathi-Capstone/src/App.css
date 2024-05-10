@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Merienda:wght@300..900&family=Poppins:wght@300&display=swap');
+
 
 nav{
   display: flex;
@@ -31,8 +33,8 @@ a{
 
 .Left-section{
   display: flex;
-  gap: 2px;
-  width: 60%;
+   width: 60%;
+   align-items: center;
   
 }
 
@@ -56,7 +58,7 @@ a{
 .Left-section img{
   width: 250px;
   height: 250px;
-  margin-left: 2vw;
+ 
 }
 
 #local{
@@ -68,18 +70,18 @@ a{
 #hotels{
    margin-top: 3vw;
    height:40vh ;
-   margin-left: 7vw;
+   margin-left:2vw;
 }
 
 #fort{
   margin-top: 12vh;
   height:65vh;
-  margin-left: 0vw;
+  margin-left: 5vw;
 }
 
 #food{
   height: 40vh;
-  margin-left: 5vw;
+  margin-left: 3vw;
 }
 
 #street{
@@ -152,17 +154,85 @@ input{
 
 .line-1{
   font-size: 70px;
+  margin: 0;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .line-2{
   font-size:40px ;
+  margin: 0;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .line-3{
   font-size: 70px;
+  margin: 0;
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .slogan-box{
-  margin-top: 10vw;
+  margin-top: 5vw;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
 }
 
+.searchBox {
+  display: flex;
+  max-width: 300px;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  background: #2f3640;
+  border-radius: 50px;
+  position: relative;
+}
+
+.searchButton {
+  color: white;
+  position: absolute;
+  right: 8px;
+  width: 25px;
+  height: 30px;
+  margin-left: 10px;
+  margin-top:-1.4vw;
+  border-radius:0%  50% 50% 0;
+  background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
+  border: 0;
+  display: inline-block;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+}
+
+button:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+  transform: translateY(-3px);
+}
+
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  padding: 24px 46px 24px 26px;
+}
+
+.slogan-box h3{
+  font-family: "Merienda", cursive;
+  font-optical-sizing: auto;
+
+  font-style: normal;
+}

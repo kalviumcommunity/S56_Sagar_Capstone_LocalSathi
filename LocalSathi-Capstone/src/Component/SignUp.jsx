@@ -16,12 +16,16 @@ let navigate = useNavigate()
  const   submitbtn = (e) => {
     e.preventDefault()
     console.log("login clicked")
-    axios.post("https://s56-sagar-capstone-localsathi.onrender.com/Signup", { Name: name, Age: Age, Email: Email, Password: password })
+    axios.post("http://localhost:3200/signup", { Name: name, Age: Age, Email: Email, Password: password })
     .then((res) => {
-     console.log(res.data)
-     navigate("/")
+     if(res.data == "User already Exists"){
+      alert("User already Exists")
+     }else{
+      alert("Sign Up Successful")
+       navigate("/")
+      }
    })
-   .catch((err) => console.log("there is error"))
+   .catch((err) => console.log("there is error",err))
 
 
   }
@@ -84,7 +88,7 @@ return (
     </div>
 
 
-      <button className="button-submit" onClick={submitbtn} >Sign up</button> 
+     <button className="button-submit" onClick={submitbtn} >Sign up</button> 
 
     <p className="p"> have an account? <span className="span">Sign In</span></p>
 

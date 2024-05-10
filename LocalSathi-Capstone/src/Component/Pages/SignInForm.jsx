@@ -22,7 +22,8 @@ let navigate = useNavigate()
         alert("Wrong Password")
      }else if(res.data == "User not exist"){
         alert("User does not exist")
-     }else if(res.data == "Login Success"){
+     }else if(res.data.message == "Login Success"){
+      document.cookie =`token=${res.data.token};expires=Sun, 1 January 9999 12:00:00 UTC; `
         alert("Login Successful..!")
         navigate("/")
      }else{

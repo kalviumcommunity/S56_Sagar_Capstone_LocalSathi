@@ -1,46 +1,56 @@
-import React from 'react';
+import React from 'react'
 import { useState } from 'react';
-import '../SignUp.css'
+import './SignUp.css'
 import { Link , useNavigate} from 'react-router-dom';
 import axios from 'axios'
 
-const SignInForm = () => {
-let navigate = useNavigate()
+const GuideSignUpForm = () => {
 
-  const [Email, setUSerEmail] = useState("")
-  const [password, setUSerPassword] = useState("")
+    let navigate = useNavigate()
 
-
- const submitbtn = (e) => {
-    e.preventDefault()
-    console.log("login clicked")
-    axios.post("http://localhost:3200/login", { Email: Email, Password: password })
-    .then((res) => {
-     if(res.data == "Password Wrong"){
-        alert("Wrong Password")
-     }else if(res.data == "User not exist"){
-        alert("User does not exist")
-     }else if(res.data.message == "Login Success"){
-      console.log(res.data.token)
-      document.cookie =`token=${res.data.token};expires=Sun, 1 January 9999 12:00:00 UTC; Secure; HttpOnly' `
-      sessionStorage.setItem("loggedin" , true)
-      sessionStorage.setItem("token",res.data.token)
-        alert("Login Successful..!")
-        navigate("/")
-     }
-     else{
-        alert("Error caused while login..!!")
-     }
-   })
-   .catch((err) => console.log("there is error",err))
+    const [name, setUserName] = useState("")
+    const [Email, setUSerEmail] = useState("")
+    const [Age, setUserage] = useState("")
+    const [password, setUSerPassword] = useState("")
 
 
-  }
+    const submitbtn = (e) => {
+        e.preventDefault()
+        console.log("signup clicked")
+        axios.post("http://localhost:3200/guidesignup", { Name: name, Age: Age, Email: Email, Password: password })
+        .then((res) => {
+        if(res.data == "User already Exists"){
+        alert("User already Exists")
+        }else{
+        alert("Sign Up Successful")
+        navigate("/SignInForm")
+        }
+    })
+    .catch((err) => console.log("there is error",err))
 
-return (
-  
-  <form className="form">
-    <h1 style={{alignSelf:'center'}}>Login Form</h1>
+
+    }
+    console.log(name, Age, Email)
+
+  return (
+    <form className="form">
+        <h1 style={{alignSelf:'center'}}>Guide Signup</h1>
+    <div className="flex-column">
+      <label>Name</label>
+      <div className="inputForm">
+
+        <input type="text" className="input" name='Username' onChange={(e) => setUserName(e.target.value)} placeholder="Enter your Name" />
+      </div>
+    </div>
+
+    <div className="flex-column">
+      <label>Age</label>
+      <div className="inputForm">
+
+        <input type="text" className="input" name='UserAge' onChange={(e) => setUserage(e.target.value)} placeholder="Enter your Age" />
+      </div>
+    </div>
+
     <div className="flex-column">
       <label>Email</label>
       <div className="inputForm">
@@ -79,9 +89,9 @@ return (
     </div>
 
 
-     <button className="button-submit" onClick={submitbtn} >Log In</button> 
+     <button className="button-submit" onClick={submitbtn} >Sign up</button> 
 
-    <p className="p"> have an account? <span className="span">Sign Up</span></p>
+    <p className="p"> have an account? <span className="span">Sign In</span></p>
 
     <p className="p line">Or With</p>
 
@@ -119,4 +129,4 @@ return (
 );
 }
 
-export default SignInForm;
+export default GuideSignUpForm

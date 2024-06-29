@@ -1,69 +1,173 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import img1 from "../assets/th 1.png";
-import img2 from "../assets/th 2.png";
-import img3 from "../assets/th 3.png";
-import img4 from "../assets/th 5.png";
-import img5 from "../assets/th 4.png";
+import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Herosection = () => {
-  const images = [img1, img2, img3, img4, img5];
+const images = [
+  "path/to/image1.jpg",
+  "path/to/image2.jpg",
+  "path/to/image3.jpg",
+  "path/to/image4.jpg",
+  "path/to/image5.jpg"
+];
+
+const HeroSection = () => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const intervalId = setInterval(() => {
       setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 3000);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(intervalId);
   }, []);
 
-  return (
-    <>
-      <div className='hero-main-section'>
-        <div className='hero-main'>
-          <div className='right-Section'>
-            <div className='slogan-box' >
-              <h2 className='line-1' >Explore like a local </h2>
-              <h2 className='line-2' >with</h2>
-              <h1 className='line-3' >LocalSathi</h1>
-              <h3 style={{color:"red"}} >"Uncover your city's best-kept secrets with LocalSathi. Dive into local experiences and explore like a true insider"</h3>
-            </div>
-            <div>
-              <div className="searchBox">
-                <input className="searchInput" type="text" placeholder="Search something" />
-               <Link to={"/PlacesSearchResult"} > <button className="searchButton" href="#"> 
-                  <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
-                    <g clipPath="url(#clip0_2_17)">
-                      <g filter="url(#filter0_d_2_17)">
-                        <path d="M23.7953 23.9182L19.0585 19.1814M19.0585 19.1814C19.8188 18.4211 20.4219 17.5185 20.8333 16.5251C21.2448 15.5318 21.4566 14.4671 21.4566 13.3919C21.4566 12.3167 21.2448 11.252 20.8333 10.2587C20.4219 9.2653 19.8188 8.36271 19.0585 7.60242C18.2982 6.84214 17.3956 6.23905 16.4022 5.82759C15.4089 5.41612 14.3442 5.20435 13.269 5.20435C12.1938 5.20435 11.1291 5.41612 10.1358 5.82759C9.1424 6.23905 8.23981 6.84214 7.47953 7.60242C5.94407 9.13789 5.08145 11.2204 5.08145 13.3919C5.08145 15.5634 5.94407 17.6459 7.47953 19.1814C9.01499 20.7168 11.0975 21.5794 13.269 21.5794C15.4405 21.5794 17.523 20.7168 19.0585 19.1814Z" stroke="white" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" shapeRendering="crispEdges"></path>
-                      </g>
-                    </g>
-                  </svg>
-                </button></Link>
-              </div>
-            </div>
-          </div>
-          <div className='Left-section'>
-            <div>
-              <img id='fort' src={images[currentImageIndex]} alt="" />
-            </div>
-            <div>
-              <div>
-                <img id='food' src={images[(currentImageIndex + 1) % images.length]} alt="" />
-                <img id='street' src={images[(currentImageIndex + 2) % images.length]} alt="" />
-              </div>
-              <div>
-                <img id='hotels' src={images[(currentImageIndex + 3) % images.length]} alt="" />
-                <img id='local' src={images[(currentImageIndex + 4) % images.length]} alt="" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr />
-    </>
-  );
-}
+  const handleNextSlide = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
 
-export default Herosection;
+  const handlePrevSlide = () => {
+    const newIndex = currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1;
+    setCurrentImageIndex(newIndex);
+  };
+
+  return (
+    <Container>
+      <Carousel>
+        <ImageWrapper>
+          <img src={images[currentImageIndex]} alt="Hero Image" />
+        </ImageWrapper>
+        <Navigation>
+          <Button onClick={handlePrevSlide} disabled={currentImageIndex === 0}>
+            <FontAwesomeIcon icon="chevron-left" />
+          </Button>
+          <Button onClick={handleNextSlide}>
+            <FontAwesomeIcon icon="chevron-right" />
+          </Button>
+        </Navigation>
+      </Carousel>
+
+      <Slogan>
+        <h2>Explore Like a Local</h2>
+        <h1>Discover with LocalSathi</h1>
+        <p>Uncover your city's best-kept secrets and dive into local experiences.</p>
+      </Slogan>
+
+      <SearchBar>
+        <input className="searchInput" type="text" placeholder="Search something" />
+        <Link to="/PlacesSearchResult">
+          <button className="searchButton">
+            <FontAwesomeIcon icon="search" />
+          </button>
+        </Link>
+      </SearchBar>
+    </Container>
+  );
+};
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 0;
+  background-color: #f5f5f5;
+`;
+
+const Carousel = styled.div`
+  position: relative;
+  overflow: hidden;
+  width: 80%;
+  height: 300px;
+`;
+
+const ImageWrapper = styled.div`
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+const Navigation = styled.div`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
+
+const Button = styled.button`
+  background: none;
+  border: none;
+  padding: 1rem;
+  cursor: pointer;
+  color: white;
+  font-size: 1.5rem;
+
+  &:hover {
+    opacity: 0.7;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: default;
+  }
+`;
+
+const Slogan = styled.div`
+  text-align: center;
+  padding: 2rem 0;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #777;
+  }
+`;
+
+const SearchBar = styled.div`
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+
+  input.searchInput {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    max-width: 300px;
+    transition: box-shadow 0.2s ease;
+
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+  }
+
+  button.searchButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5rem 1rem;
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+
+    &:hover {
+      background-color: #0056bf;
+    }
+  }
+`;
+
+export default HeroSection;

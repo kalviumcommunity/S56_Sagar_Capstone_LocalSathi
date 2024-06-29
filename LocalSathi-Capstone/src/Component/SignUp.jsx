@@ -4,8 +4,8 @@ import './SignUp.css'
 import { Link , useNavigate} from 'react-router-dom';
 import axios from 'axios'
 
-const SignUpForm = () => {
-let navigate = useNavigate()
+const UserSignUpForm = () => {
+  let navigate = useNavigate()
 
   const [name, setUserName] = useState("")
   const [Email, setUSerEmail] = useState("")
@@ -13,16 +13,16 @@ let navigate = useNavigate()
   const [password, setUSerPassword] = useState("")
 
 
- const   submitbtn = (e) => {
+ const submitbtn = (e) => {
     e.preventDefault()
-    console.log("login clicked")
+    console.log("signup clicked")
     axios.post("http://localhost:3200/signup", { Name: name, Age: Age, Email: Email, Password: password })
     .then((res) => {
      if(res.data == "User already Exists"){
       alert("User already Exists")
      }else{
       alert("Sign Up Successful")
-       navigate("/")
+       navigate("/SignInForm")
       }
    })
    .catch((err) => console.log("there is error",err))
@@ -33,7 +33,7 @@ console.log(name, Age, Email)
 
 return (
   <form className="form">
-
+    <h1 style={{alignSelf:'center'}}>Tourist Signup</h1>
     <div className="flex-column">
       <label>Name</label>
       <div className="inputForm">
@@ -128,4 +128,4 @@ return (
 );
 }
 
-export default SignUpForm;
+export default UserSignUpForm;

@@ -42,7 +42,7 @@ const SignupPage = () => {
         </label>
       </div>
       {/* Disable the button if no option is selected */}
-      <Link to={role ? '/SignUpForm' : '/'}> 
+      <Link to={role == "tourist" ? '/SignUpForm' : '/guideSignup'}> 
         <button onClick={handleSignup} disabled={!role}>Sign Up</button>
       </Link>
     </div>

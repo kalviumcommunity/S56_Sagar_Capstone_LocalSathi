@@ -1,12 +1,14 @@
 const express = require('express')
 const { connected, isConnected } = require('./DB'); 
 const cors = require("cors");
-const {router} = require("./Routes.js")
+const {router} = require("./Routes/Routes.js")
+const {profileRouter} = require("./Routes/profileRoutes.js")
 const port = 3200
 
 const app = express()
 app.use(cors())
 app.use(express.json())
+app.use(profileRouter)
 
 app.get('/', (req, res) => {
     try{

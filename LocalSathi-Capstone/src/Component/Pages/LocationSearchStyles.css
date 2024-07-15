@@ -1,18 +1,5 @@
-/* LocationSearchStyles.css */
-
-/* body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    background-color: #f0f2f5;
-    margin: 0;
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden; /* Prevents scrolling */
-  /* } */ 
-  
-  /* .search-container {
+/* LocationSearchStyles.css */  
+   .search-container {
     background-color: #ffffff;
     padding: 20px;
     border-radius: 10px;
@@ -21,9 +8,9 @@
     max-width: 800px;
     box-sizing: border-box;
     overflow-y: auto; /* Enable scrolling within the container if needed */
-  /* } */
+   } 
    
-  /* .search-container input[type="text"] {
+   .search-container input[type="text"] {
     flex-grow: 1;
     padding: 10px;
     border: 2px solid #ccc;
@@ -46,9 +33,9 @@
     background-color: #0056b3;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  } */
+  } 
   
-  /* .search-container button:active {
+   .search-container button:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
@@ -68,11 +55,11 @@
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
     width: calc(33.333% - 20px); /* Adjust to fit within the container */
-    /* box-sizing: border-box;
+   box-sizing: border-box;
     animation: fadeIn 0.5s ease-in;
-  } */ 
+  } 
   
-  /* .popular-cities .city:hover {
+   .popular-cities .city:hover {
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transform: scale(1.05);
@@ -92,9 +79,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-  } */
+  } 
   
-  /* .other-cities-container span {
+   .other-cities-container span {
     background-color: white;
     padding: 5px 10px;
     border: 1px solid #ccc;
@@ -104,20 +91,20 @@
     cursor: pointer;
     transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
     animation: fadeIn 0.5s ease-in;
-  } */
+  }
   
-  /* .other-cities-container span:hover {
+   .other-cities-container span:hover {
     background-color: #f9f9f9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transform: scale(1.05);
   }
-   */
-  /* .toggle-button {
+   
+  .toggle-button {
     display: block;
     margin: 20px auto 0 auto; /* Adjust margin to avoid overlap and center the button */
-    /* width: 200px;
-    padding: 10px 20px; */ 
-    /* background-color: #28a745;
+    width: 200px;
+    padding: 10px 20px; 
+     background-color: #28a745;
     border: none;
     border-radius: 4px;
     color: white;
@@ -125,9 +112,9 @@
     cursor: pointer;
     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
     animation: fadeIn 0.5s ease-in;
-  } */
+  } 
   
-  /* .toggle-button:hover {
+   .toggle-button:hover {
     background-color: #218838;
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -136,9 +123,9 @@
   .toggle-button:active {
     transform: translateY(0);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  } */
+  } 
   
-  /* @keyframes fadeIn {
+  @keyframes fadeIn {
     from {
       opacity: 0;
       transform: translateY(10px);
@@ -147,5 +134,5 @@
       opacity: 1;
       transform: translateY(0);
     }
-  } */
+  } 
   

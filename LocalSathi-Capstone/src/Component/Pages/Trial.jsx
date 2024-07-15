@@ -1,4 +1,4 @@
-import React, { useState , useEffect} from 'react';
+import React, { useState, useEffect } from 'react';
 import './Trial.css';
 import axios from "axios"
 
@@ -7,30 +7,31 @@ const ProfilePage = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [newFavourite, setNewFavourite] = useState({ name: '', image: '', discount: '' });
   const [activeTab, setActiveTab] = useState('Timeline');
-
-  useEffect(()=>{
-    axios.get("http://localhost:3200/getUser" , {
-      headers:{
+  const [Name,setName]=useState('')
+  const [Age,setAge]=useState('')
+  const [Location,setLocation]=useState('')
+  const [Email,setEmail]=useState('')
+  
+  useEffect(() => {
+    axios.get("http://localhost:3200/getUser", {
+      headers: {
         Authorization: sessionStorage.getItem("token")
       }
     })
-    .then((res)=>{
-      console.log(res)
-      setProfile(res.data)
-    })
-  },[])
+      .then((res) => {
+        console.log(res)
+        setProfile(res.data)
+      })
+  }, [])
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setProfile({ ...profile, [name]: value });
-  };
+
 
   const handleFavouriteChange = (e) => {
     const { name, value } = e.target;
     setNewFavourite({ ...newFavourite, [name]: value });
   };
 
-  const deleteBooking = (id) =>{
+  const deleteBooking = (id) => {
     const updatedbookings = profile.bookings.filter(booking => booking.id !== id);
     setProfile({ ...profile, bookings: updatedbookings })
   }
@@ -41,7 +42,20 @@ const ProfilePage = () => {
   };
 
   const saveProfile = () => {
-    setIsEditing(false);
+    let newData={Name,Age,Location,Email}
+    axios.put("http://localhost:3200/Updateprofile",newData,{headers:{
+      Authorization:sessionStorage.getItem("token")
+    }})
+    .then((res)=>{
+      if (res.data.message=="Profile updated successfully"){
+        setProfile(res.data.newData)
+        document.cookie = `token=${res.data.token};expires=Sun, 1 January 9999 12:00:00 UTC; Secure; HttpOnly secure' `
+        sessionStorage.setItem("token", res.data.token)
+       
+        
+      }
+    })
+    setIsEditing(false)
   };
 
   const handleProfilePicChange = (e) => {
@@ -100,11 +114,11 @@ const ProfilePage = () => {
         />
         {profile.profilepic && <button className="remove-profile-pic-btn" onClick={removeProfilePic}>✖</button>}
         <div className="profile-details">
-            <>
-              <h2>{profile.Name} </h2>
-              <p>{profile.location}</p>
-              <p><span className="points-icon">🏆</span> {profile.points} PTS</p>
-            </>
+          <>
+            <h2>{profile.Name} </h2>
+            <p>{profile.location}</p>
+            <p><span className="points-icon">🏆</span> {profile.points} PTS</p>
+          </>
         </div>
       </div>
       <div className="tabs">
@@ -124,12 +138,12 @@ const ProfilePage = () => {
           <div className="bookings">
             <h3>Booking History</h3>
             <ul>
-              {profile.bookings.map((booking , i) => (
-                <li key={booking.id} style={{margin:"20px"}}>
-                  <h3>{i+1}) {booking.name}</h3>
+              {profile.bookings.map((booking, i) => (
+                <li key={booking.id} style={{ margin: "20px" }}>
+                  <h3>{i + 1}) {booking.name}</h3>
                   <p>Date : {booking.date}</p>
                   <p>Status : {booking.status}</p>
-                  <button style={{background:"white" , padding:"0" , cursor:"pointer"}} onClick={() => deleteBooking(booking.id)}>🗑️</button>
+                  <button style={{ background: "white", padding: "0", cursor: "pointer" }} onClick={() => deleteBooking(booking.id)}>🗑️</button>
                 </li>
               ))}
             </ul>
@@ -177,44 +191,44 @@ const ProfilePage = () => {
             </div> */}
           </div>
         )}
-        {activeTab === 'Account Settings' && 
+        {activeTab === 'Account Settings' &&
           <div>
-            <h1>Account Details <span className="edit-icon" onClick={() => setIsEditing(true)} style={{cursor:'pointer'}}>✏️</span></h1>
+            <h1>Account Details <span className="edit-icon" onClick={() => setIsEditing(true)} style={{ cursor: 'pointer' }}>✏️</span></h1>
             {isEditing ? (
-            <div style={{display:"flex" , flexDirection:"column"}}>
-              <label htmlFor="name">Name</label>
-              <input type="text" name="name" value={profile.name} onChange={handleInputChange} style={{border:"2px solid black" , borderRadius:"5px" , padding:"5px 10px" , marginBottom:"10px"}}/>
+              <div style={{ display: "flex", flexDirection: "column" }}>
+                <label htmlFor="name">Name</label>
+                <input type="text" name="name" value={profile.name} onChange={(e)=>setName(e.target.value)} style={{ border: "2px solid black", borderRadius: "5px", padding: "5px 10px", marginBottom: "10px" }} />
 
-              <label htmlFor="email">Email</label>
-              <input type="email" name="email" value={profile.email} onChange={handleInputChange} style={{border:"2px solid black" , borderRadius:"5px" , padding:"5px 10px" , marginBottom:"10px"}}/>
+                <label htmlFor="email">Email</label>
+                <input type="email" name="email" value={profile.email} onChange={(e)=>setEmail(e.target.value)} style={{ border: "2px solid black", borderRadius: "5px", padding: "5px 10px", marginBottom: "10px" }} />
 
-              <label htmlFor="age">Age</label>
-              <input type="number" name="age" value={profile.age} onChange={handleInputChange} style={{border:"2px solid black" , borderRadius:"5px" , padding:"5px 10px" , marginBottom:"10px"}}/>
+                <label htmlFor="age">Age</label>
+                <input type="number" name="age" value={profile.age} onChange={(e)=>setAge(e.target.value)} style={{ border: "2px solid black", borderRadius: "5px", padding: "5px 10px", marginBottom: "10px" }} />
 
-              <label htmlFor="location">Location</label>
-              <input type="text" name="location" value={profile.location} onChange={handleInputChange} style={{border:"2px solid black" , borderRadius:"5px" , padding:"5px 10px" , marginBottom:"10px"}}/>
-              
-              <button className="save-btn" onClick={saveProfile} style={{width:"fit-content" , cursor:'pointer'}}>Save</button>
-            </div>
-          ) : (
-            <div>
-              <div style={{display:"flex", alignItems:"center"}}>
-              <h4>Name :</h4>
-              <p style={{marginLeft:"10px"}}>{profile.Name}</p>
-            </div>
-            <div style={{display:"flex", alignItems:"center"}}>
-              <h4>Email :</h4>
-              <p style={{marginLeft:"10px"}}>{profile.Email}</p>
-            </div>
-            <div style={{display:"flex", alignItems:"center"}}>
-              <h4>Age :</h4>
-              <p style={{marginLeft:"10px"}}>{profile.Age}</p>
-            </div>
-            <div style={{display:"flex", alignItems:"center"}}>
-              <h4>Location :</h4>
-              <p style={{marginLeft:"10px"}}>{profile.location}</p>
-            </div>
-            </div>
+                <label htmlFor="location">Location</label>
+                <input type="text" name="location" value={Location} onChange={(e)=>setLocation(e.target.value)} style={{ border: "2px solid black", borderRadius: "5px", padding: "5px 10px", marginBottom: "10px" }} />
+
+                <button className="save-btn" onClick={saveProfile} style={{ width: "fit-content", cursor: 'pointer' }}>Save</button>
+              </div>
+            ) : (
+              <div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <h4>Name :</h4>
+                  <p style={{ marginLeft: "10px" }}>{profile.Name}</p>
+                </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <h4>Email :</h4>
+                  <p style={{ marginLeft: "10px" }}>{profile.Email}</p>
+                </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <h4>Age :</h4>
+                  <p style={{ marginLeft: "10px" }}>{profile.Age}</p>
+                </div>
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <h4>Location :</h4>
+                  <p style={{ marginLeft: "10px" }}>{profile.location}</p>
+                </div>
+              </div>
             )}
           </div>}
       </div>

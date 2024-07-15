@@ -2,11 +2,11 @@ const mongoose = require("mongoose")
 
 
 const SignUpSchema = new mongoose.Schema({
-    Name:String,
-    Email:String,
-    Age:Number,
-    Password:String,
-    location:String,
+    Name: String,
+    Email: String,
+    Age: Number,
+    Password: String,
+    location: String,
     points: Number,
     profilePic: String,
     coverPhoto: String,
@@ -15,13 +15,13 @@ const SignUpSchema = new mongoose.Schema({
 })
 
 const guideSchema = new mongoose.Schema({
-    Name:String,
-    Email:String,
-    Age:Number,
-    Password:String,
+    Name: String,
+    Email: String,
+    Age: Number,
+    Password: String,
 })
 
-const SignupDetail = mongoose.model("signups",SignUpSchema)
+const SignupDetail = mongoose.model("signups", SignUpSchema)
 const GuideDetails = mongoose.model("guides", guideSchema)
 
-module.exports={SignupDetail , GuideDetails}
+module.exports = { SignupDetail, GuideDetails }

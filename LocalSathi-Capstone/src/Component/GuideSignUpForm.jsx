@@ -26,7 +26,12 @@ const GuideSignUpForm = () => {
           navigate("/SignInForm")
         }
       })
-      .catch((err) => console.log("there is error", err))
+      .catch((err) =>{
+         console.log("there is error", err)
+         if (err.response.data == "User already Exists") {
+          alert("User already Exists")
+        }
+        })
 
 
   }

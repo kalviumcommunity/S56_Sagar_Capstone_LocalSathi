@@ -1,138 +1,149 @@
-/* LocationSearchStyles.css */  
-   .search-container {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 800px;
-    box-sizing: border-box;
-    overflow-y: auto; /* Enable scrolling within the container if needed */
-   } 
-   
-   .search-container input[type="text"] {
-    flex-grow: 1;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+/* LocationSearchStyles.css */
+
+.search-container {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 15px 25px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  margin: 20px auto;
+  overflow-y: auto;
+  font-family: 'Arial', sans-serif;
+}
+
+.search-container input[type="text"] {
+  flex-grow: 1;
+  padding: 12px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  font-size: 18px;
+  width: calc(100% - 24px);
+  margin-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.search-container button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  background-color: #007bff;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  margin-top: 10px;
+}
+
+.search-container button:hover {
+  background-color: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.search-container button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.popular-cities {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.popular-cities .city {
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  width: calc(33.333% - 20px);
+  box-sizing: border-box;
+  animation: fadeIn 0.5s ease-in;
+  margin-bottom: 15px;
+  text-align: center;
+  flex-direction: column;
+}
+
+.popular-cities .city:hover {
+  background-color: #fafafa;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.popular-cities .city .city-icon {
+  font-size: 32px;
+}
+
+.popular-cities .city .city-name {
+  font-size: 18px;
+  color: #333;
+}
+
+.other-cities-container {
+  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.other-cities-container span {
+  background-color: #fff;
+  padding: 8px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.other-cities-container span:hover {
+  background-color: #fafafa;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.toggle-button {
+  display: block;
+  margin: 30px auto 0 auto;
+  width: 220px;
+  padding: 12px 25px;
+  background-color: #28a745;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  animation: fadeIn 0.5s ease-in;
+}
+
+.toggle-button:hover {
+  background-color: #218838;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-button:active {
+  transform: translateY(0);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
   }
-  
-  .search-container button {
-    padding: 10px 20px;
-    border: none;
-    border-radius: 4px;
-    background-color: #007bff;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-  }
-  
-  .search-container button:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  } 
-  
-   .search-container button:active {
+  to {
+    opacity: 1;
     transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
-  .popular-cities {
-    margin-top: 20px;
-  }
-  
-  .popular-cities .city {
-    background-color: white;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
-    width: calc(33.333% - 20px); /* Adjust to fit within the container */
-   box-sizing: border-box;
-    animation: fadeIn 0.5s ease-in;
-  } 
-  
-   .popular-cities .city:hover {
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05);
-  }
-  
-  .popular-cities .city .city-icon {
-    font-size: 24px;
-  }
-  
-  .popular-cities .city .city-name {
-    font-size: 16px;
-    color: #555;
-  }
-  
-  .other-cities-container {
-    margin-top: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-  } 
-  
-   .other-cities-container span {
-    background-color: white;
-    padding: 5px 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 14px;
-    color: #555;
-    cursor: pointer;
-    transition: background-color 0.3s, box-shadow 0.3s, transform 0.3s;
-    animation: fadeIn 0.5s ease-in;
-  }
-  
-   .other-cities-container span:hover {
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transform: scale(1.05);
-  }
-   
-  .toggle-button {
-    display: block;
-    margin: 20px auto 0 auto; /* Adjust margin to avoid overlap and center the button */
-    width: 200px;
-    padding: 10px 20px; 
-     background-color: #28a745;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    animation: fadeIn 0.5s ease-in;
-  } 
-  
-   .toggle-button:hover {
-    background-color: #218838;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .toggle-button:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  } 
-  
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  } 
-  
+}

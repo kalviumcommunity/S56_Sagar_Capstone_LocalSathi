@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './LocationSearchStyles.css'; // Updated CSS file name
+import Navbar from './Navbar';
 
 const LocationSearch = () => {
   const [showAllCities, setShowAllCities] = useState(false);
@@ -29,6 +30,8 @@ const LocationSearch = () => {
   };
 
   return (
+    <div>
+      <Navbar/>
     <div className="search-container">
       <input type="text" placeholder="Search for your city" />
       <button className="detect-button">Detect my location</button>
@@ -53,6 +56,7 @@ const LocationSearch = () => {
       <button className="toggle-button" onClick={toggleShowAllCities}>
         {showAllCities ? 'Hide All Cities' : 'Show All Cities'}
       </button>
+    </div>
     </div>
   );
 };

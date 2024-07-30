@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;600&display=swap');
+
+
+.unique-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 20px; /* Adjust if needed */
+}
+
+.unique-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.unique-col {
+  flex: 1 1 30%;
+  margin: 10px;
+}
+
+.unique-card {
+  position: relative;
+  height: 300px;
+  width: 100%;
+  transition: ease all 2.3s;
+  perspective: 1200px;
+}
+
+.unique-card:hover .unique-cover {
+  transform: rotateX(0deg) rotateY(-180deg);
+}
+
+.unique-card:hover .unique-cover:before {
+  transform: translateZ(30px);
+}
+
+.unique-card:hover .unique-cover:after {
+  background-color: black;
+}
+
+.unique-card:hover .unique-cover h1 {
+  transform: translateZ(100px);
+}
+
+.unique-card:hover .unique-cover .unique-price {
+  transform: translateZ(60px);
+}
+
+.unique-card:hover .unique-cover a {
+  transform: translateZ(-60px) rotateY(-180deg);
+}
+
+.unique-cover {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  transition: ease all 2.3s;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.unique-cover:before {
+  content: '';
+  position: absolute;
+  border: 5px solid rgba(255, 255, 255, .5);
+  box-shadow: 0 0 12px rgba(0, 0, 0, .3);
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  transition: ease all 2.3s;
+  transform-style: preserve-3d;
+  transform: translateZ(0px);
+}
+
+.unique-cover:after {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 2;
+  transition: ease all 1.3s;
+  background: rgba(0, 0, 0, .4);
+}
+
+.unique-item-a {
+  background-image: url('https://tse3.mm.bing.net/th?id=OIP.0b3nIYGueZrpoPiB0yTOPQHaEK&pid=Api&P=0&h=220');
+}
+
+.unique-item-b {
+  background-image: url('https://tse3.mm.bing.net/th?id=OIP.nnxgZpW4RapX_fm3DiRxqQHaJ4&pid=Api&P=0&h=220');
+}
+
+.unique-item-c {
+  background-image: url('https://tse3.mm.bing.net/th?id=OIP.wjbLy0WHTKbi8wK_EnjChAHaFj&pid=Api&P=0&h=220    ');
+}
+
+.unique-item-a-adventure{
+  background-image: url('https://tse1.mm.bing.net/th?id=OIP.3QwxkYIRev19BVxuii8hJwHaFj&pid=Api&P=0&h=220');
+}
+.unique-item-b-adventure{
+  background-image: url('https://tse1.mm.bing.net/th?id=OIP.7S-jWHnTW51oEPURUdN3iwHaHa&pid=Api&P=0&h=220');
+}
+.unique-item-c-adventure{
+  background-image: url('https://tse1.mm.bing.net/th?id=OIP.p068Qww3UfWGh2wwH3ZPBQHaE7&pid=Api&P=0&h=220');
+}
+
+.unique-item-a-hotel{
+  background-image: url('https://imgs.search.brave.com/kW5BzHn_4jpG-qTGPG2f1c_C4uY0UmSEWnwm91mpTgE/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTEz/MDkwOTAxNS9waG90/by9wb3J0cmFpdC1p/bmRpYW4tbWFuLWF0/LXZpbGxhZ2Utc3Rv/Y2staW1hZ2UuanBn/P3M9NjEyeDYxMiZ3/PTAmaz0yMCZjPWlH/bE9yeTI1V05QM29m/cjdGem9DZmVBV2st/Ylljc1dkYjZTVlNn/Y29nWjg9');
+}
+.unique-item-b-hotel{
+  background-image: url('https://imgs.search.brave.com/--8g05akMQvZl9oyoD5XV0rTCeUR-93Jyj-utBQ70WQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90aHVt/YnMuZHJlYW1zdGlt/ZS5jb20vYi9zaW1w/bGUtaW5kaWFuLXZp/bGxhZ2UtYm95LTUy/MzU3MDQuanBn');
+}
+.unique-item-c-hotel{
+  background-image: url('https://imgs.search.brave.com/y2uW3B11I0aqF1kmbE1YlXaJyaU4bu-gKd5p23lo854/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/ZnJlZS1waG90by9j/bG9zZS11cC1leGNp/dGVkLXBlcnNvbi1w/b3J0cmFpdF8yMy0y/MTUxMTg2NjQ0Lmpw/Zz9zaXplPTYyNiZl/eHQ9anBn');
+}
+
+.unique-item-a-scenic{
+  background-image: url('https://imgs.search.brave.com/2sXoqOIfdp-rMf-n6DEG-364qdSncA4ocHW_Yp4s1pM/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy8z/LzMyL1RvdXJfR3Vp/ZGUuanBn');
+}
+.unique-item-b-scenic{
+background-image: url('https://imgs.search.brave.com/PXg6trrhTCWE8KN6w272i5fKsrxv_abYIIHC6Gd8nFQ/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy82/LzYxL1RvdXJfZ3Vp/ZGVfYXRfdGhlX05h/dGlvbmFsX011c2V1/bV9vZl90aGVfQW1l/cmljYW5fSW5kaWFu/LmpwZw');
+}
+.unique-item-c-scenic{
+  background-image: url('https://imgs.search.brave.com/KVG3RJVoRRj6flwcsmXj1FgzKFDae-223Zg79U-Enq0/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly90aGV0/cmlwc2Nob29sLmNv/bS93cC1jb250ZW50/L3VwbG9hZHMvMjAy/MS8xMC90b3VyLWd1/aWRlLXByZXNlbnRp/bmctaW5mb3JtYXRp/b24ud2VicA');
+}
+
+
+.unique-cover h1 {
+  font-weight: 600;
+  position: absolute;
+  bottom: 35px;
+  left: 20px;
+  color: white;
+  transform-style: preserve-3d;
+  transition: ease all 2.3s;
+  z-index: 3;
+  font-size: 2em;
+  transform: translateZ(0px);
+}
+
+.unique-price {
+  font-weight: 200;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  transform-style: preserve-3d;
+  transition: ease all 2.3s;
+  z-index: 4;
+  font-size: 1.5em;
+  transform: translateZ(0px);
+}
+
+.unique-card-back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #0b0f08;
+  transform-style: preserve-3d;
+  transition: ease all 2.3s;
+  transform: translateZ(-1px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.unique-card-back a {
+  transform-style: preserve-3d;
+  transition: ease transform 2.3s, ease background .5s;
+  transform: translateZ(-1px) rotateY(-180deg);
+  background: transparent;
+  border: 1px solid white;
+  font-weight: 200;
+  font-size: 1em;
+  color: white;
+  padding: 10px 20px;
+  outline: none;
+  text-decoration: none;
+}
+
+.unique-card-back a:hover {
+  background-color: white;
+  color: #0b0f08;
+}
+
+@media (max-width: 768px) {
+  .unique-col {
+    flex: 1 1 100%;
+  }
+}
+
+.unique-footer {
+  /* background-color: #0b0f08; */
+  /* color: white; */
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}

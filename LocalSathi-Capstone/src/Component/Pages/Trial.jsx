@@ -43,7 +43,7 @@ const ProfilePage = () => {
 
   const saveProfile = () => {
     let newData={Name,Age,Location,Email}
-    axios.put("http://localhost:3200/Updateprofile",newData,{headers:{
+    axios.put("https://s56-sagar-capstone-localsathi.onrender.com/Updateprofile",newData,{headers:{
       Authorization:sessionStorage.getItem("token")
     }})
     .then((res)=>{

@@ -31,7 +31,7 @@ const PlacesSearchResult = () => {
         <h1>"We did our first LocalSathi tour when arriving to the city  <br /> and can highly recommend people to do the same."</h1>
       </div>
 
-      <ChooseGuideCard/>
+      {/* <ChooseGuideCard/> */}
         <WhyLocalSathi/>
       <AllThingsTodo/>
     <ReviewSection/>

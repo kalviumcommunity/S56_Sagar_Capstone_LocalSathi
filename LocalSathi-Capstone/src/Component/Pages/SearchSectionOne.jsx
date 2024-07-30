@@ -1,5 +1,6 @@
 import React from 'react'
-import sampleimg from "../assets/sampleimg.jpg"
+import sampleimg from "../assets/guideandppl.jpg"
+
 
 const SearchSectionOne = () => {
   return (
@@ -11,7 +12,7 @@ const SearchSectionOne = () => {
 
         </div>
         <div className='sec-1-2' >
-          <img src={sampleimg} alt="" />
+          <img   style={{width:"600px",height:"300px"  }} src={sampleimg} alt="" />
         </div>
       </div>
     </div>

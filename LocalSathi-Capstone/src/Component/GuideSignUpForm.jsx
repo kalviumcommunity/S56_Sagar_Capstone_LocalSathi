@@ -17,7 +17,7 @@ const GuideSignUpForm = () => {
   const submitbtn = (e) => {
     e.preventDefault()
     console.log("signup clicked")
-    axios.post("http://localhost:3200/guidesignup", { Name: name, Age: Age, Email: Email, Password: password })
+    axios.post("https://s56-sagar-capstone-localsathi.onrender.com/guidesignup", { Name: name, Age: Age, Email: Email, Password: password })
       .then((res) => {
         if (res.data == "User already Exists") {
           alert("User already Exists")
@@ -26,7 +26,12 @@ const GuideSignUpForm = () => {
           navigate("/SignInForm")
         }
       })
-      .catch((err) => console.log("there is error", err))
+      .catch((err) =>{
+         console.log("there is error", err)
+         if (err.response.data == "User already Exists") {
+          alert("User already Exists")
+        }
+        })
 
 
   }

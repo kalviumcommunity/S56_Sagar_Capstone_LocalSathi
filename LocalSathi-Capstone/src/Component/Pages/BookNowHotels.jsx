@@ -1,29 +1,30 @@
-import React from 'react';
-import './ChooseGuideCard.css';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import React from 'react'
+import Navbar from './Navbar'
+import Footer from './Footer'
 
-const UniqueCardSection = () => {
+const BookNowHotels = () => {
   return (
-    <>
-      <section className="unique-section">
+    <div>
+        <Navbar/>
+        <h1 style={{textAlign:"center"}} >Discover Your Guide to Exploring the Best Hotels at Unbeatable Prices</h1>
+        <section className="unique-section">
         <div className="unique-row">
           <div className="unique-col">
             <div className="unique-card">
-              <div className="unique-cover unique-item-a">
-                <h1>Raman <br />Rajguru</h1>
+              <div className="unique-cover unique-item-a-hotel">
+                <h1>Rohan<br />Bansode</h1>
                 <span className="unique-price">$79</span>
                 <div className="unique-card-back">
                   <a href="#">Contact:9838821112</a>
-                
+                 
                 </div>
               </div>
             </div>
           </div>
           <div className="unique-col">
             <div className="unique-card">
-              <div className="unique-cover unique-item-b">
-                <h1>Manpreet<br />Rayka</h1>
+              <div className="unique-cover unique-item-b-hotel">
+                <h1>Tejas<br />Satav</h1>
                 <span className="unique-price">$35</span>
                 <div className="unique-card-back">
                   <a href="#">Contact:9838821112</a>
@@ -33,8 +34,8 @@ const UniqueCardSection = () => {
           </div>
           <div className="unique-col">
             <div className="unique-card">
-              <div className="unique-cover unique-item-c">
-                <h1>Yashraj<br />Ingale</h1>
+              <div className="unique-cover unique-item-c-hotel">
+                <h1>Amit <br />Hargude</h1>
                 <span className="unique-price">$155</span>
                 <div className="unique-card-back">
                   <a href="#">Contact:9838821112</a>
@@ -47,8 +48,8 @@ const UniqueCardSection = () => {
       <footer className="unique-footer">
         <Footer/>
       </footer>
-    </>
-  );
-};
+    </div>
+  )
+}
 
-export default UniqueCardSection;
+export default BookNowHotels

@@ -10,7 +10,11 @@ import UserOrGuide from './Component/Pages/UserOrGuide'
 import SignInForm from './Component/Pages/SignInForm' 
 import LocationSearchPage from './Component/Pages/LocationSearchPage'
 import GuideSignUpForm from './Component/GuideSignUpForm'
-
+import ContactPage from './Component/Pages/ContactPage'
+import BookNowPage from './Component/Pages/BookNowPage'
+import BookNowAdventure from './Component/Pages/BookNowAdventure'
+import BookNowHotels from './Component/Pages/BookNowHotels'
+import BookNowScenicPlace from './Component/Pages/BookNowScenicPlace'
 function App() {
   
 
@@ -24,6 +28,12 @@ function App() {
      <Route path='/guideSignup' element={<GuideSignUpForm />} />
      <Route path='/SignInForm' element={<SignInForm/>} /> <Route/>
      <Route path='/locationPage' element={<LocationSearchPage/>} ></Route>
+     <Route path='/ContactPage' element={<ContactPage/>} ></Route>
+     <Route path='/bookNow' element={<BookNowPage/>}></Route>
+     <Route path='/bookAdventure' element={<BookNowAdventure/>} ></Route>
+     <Route path='/bookHotel' element={<BookNowHotels/>}></Route>
+     <Route path='/sceneicPlace' element={<BookNowScenicPlace/>} ></Route>
+
     </Routes>
   )
 }

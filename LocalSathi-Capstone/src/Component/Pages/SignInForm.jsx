@@ -14,7 +14,7 @@ const SignInForm = () => {
   const submitbtn = (e) => {
     e.preventDefault()
     console.log("login clicked")
-    axios.post("http://localhost:3200/login", { Email: Email, Password: password })
+    axios.post("https://s56-sagar-capstone-localsathi.onrender.com/login", { Email: Email, Password: password })
       .then((res) => {
         if (res.data == "Password Wrong") {
           alert("Wrong Password")

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Link , useNavigate } from 'react-router-dom'
+// import logo from '../assets/logo.png.png'
 
 const Navbar = () => {
 
@@ -27,14 +28,20 @@ const Navbar = () => {
       <div className='nav-container' >
         <nav>
           <div className='logo'>
-            <img src="Project-1-brandpage\BrandPage\src\Component\Images\brand_logo.png" alt="logo" />
+            {/* <img src={logo} /> */}
+            <h1>LocalSathi</h1>
           </div>
           <ul>
-            <li><a href="#">menu</a></li>
-            <Link to={"/locationPage"}> <li><a href="#">Location</a></li></Link>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <Link to={"/Trial"} > <li><a href="#">explore</a></li>  </Link>
+
+         <h4> <Link  to={"/"} > <li><a href="#">Menu</a></li></Link> </h4>
+
+          <h4> <Link to={"/locationPage"}> <li><a href="#">Location</a></li></Link> </h4> 
+
+          
+         <h4>  <Link  to={"/ContactPage"} >  <li><a href="#">Contact</a></li> </Link> </h4>
+
+          <h4> <Link to={"/PlacesSearchResult"} > <li><a href="#">Explore</a></li>  </Link> </h4> 
+
           </ul>
           {sessionStorage.getItem("loggedin") === "true" ?
             <div style={{ borderRadius: "50%", position: "relative", cursor:"pointer"}} onClick={handleDropdown}>

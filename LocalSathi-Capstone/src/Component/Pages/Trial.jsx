@@ -13,7 +13,7 @@ const ProfilePage = () => {
   const [Email,setEmail]=useState('')
   
   useEffect(() => {
-    axios.get("http://localhost:3200/getUser", {
+    axios.get("http://https://s56-sagar-capstone-localsathi.onrender.com/getUser", {
       headers: {
         Authorization: sessionStorage.getItem("token")
       }
